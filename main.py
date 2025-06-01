@@ -1363,7 +1363,7 @@ class MainWindow(QMainWindow):
                 default_config = {
                     'task_combo': 'real_sr',
                     'scale_spin': 4,
-                    'model_path_edit': 'models/swinir_real_sr_m_4x.pth',
+                    'model_path_edit': 'models/003_realSR_BSRGAN_DFO_s64w8_SwinIR-M_x4_GAN.pth',
                     'tile_spin': 128,
                     'large_model': False
                 }
@@ -1578,7 +1578,7 @@ class MainWindow(QMainWindow):
         scale_layout = self.create_labeled_widget("Ölçek Faktörü:", swinir_scale_spin)
 
         swinir_model_path_edit = QLineEdit()
-        swinir_model_path_edit.setText('models/swinir_real_sr_m_4x.pth')
+        swinir_model_path_edit.setText('models/003_realSR_BSRGAN_DFO_s64w8_SwinIR-M_x4_GAN.pth')
         model_path_layout = self.create_labeled_widget("Model Yolu:", swinir_model_path_edit)
         model_path_btn = QPushButton("Seç")
         model_path_btn.clicked.connect(self.select_model_path)
@@ -1655,7 +1655,7 @@ class MainWindow(QMainWindow):
                     'type': 'swinir_process',
                     'task': step_config.get('task_combo', 'real_sr'),
                     'scale': step_config.get('scale_spin', 4),
-                    'model_path': step_config.get('model_path_edit', 'models/swinir_real_sr_m_4x.pth'),
+                    'model_path': step_config.get('model_path_edit', 'models/003_realSR_BSRGAN_DFO_s64w8_SwinIR-M_x4_GAN.pth'),
                     'tile': step_config.get('tile_spin', 256),
                     'large_model': step_config.get('large_model', False)
                 })
