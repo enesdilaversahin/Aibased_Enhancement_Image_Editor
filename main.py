@@ -272,7 +272,7 @@ class ProcessingThread(QThread):
         self.input_dir = Path(input_dir)
         self.output_dir = Path(output_dir)
         self.config = config
-        self.temp_dir = Path("C:/Temp/EgaImageEditor")
+        self.temp_dir = Path("C:/Temp/ImageEditor")
         self.temp_dir.mkdir(parents=True, exist_ok=True)
         self.main_window = main_window
         self.name_mapping = {}
@@ -789,7 +789,7 @@ class MainWindow(QMainWindow):
         self.setGeometry(100, 100, 1200, 800)
         self._update_gpu_stats()
         self._init_gpu_monitoring()
-        self.setWindowTitle("EgaImageEditor")
+        self.setWindowTitle("ImageEditor")
         self.setWindowFlags(Qt.FramelessWindowHint)
 
         # Detect Windows dark mode (implement this function if needed)
@@ -1033,7 +1033,7 @@ class MainWindow(QMainWindow):
 
         self.icon_label.setFixedSize(60, 60)  # ✅ Daha büyük alan kaplaması için genişlettik
 
-        self.title_label = QLabel("EgaImageEditor", self.title_bar)
+        self.title_label = QLabel("ImageEditor", self.title_bar)
         self.title_label.setStyleSheet("color: white; font-size: 22px; background-color: transparent;")  
 
    

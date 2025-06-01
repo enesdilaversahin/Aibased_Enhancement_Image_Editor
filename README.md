@@ -1,6 +1,6 @@
-## 📦 EgaImageEditor - Görüntü İşleme Aracı
+## 📦 ImageEditor - Görüntü İşleme Aracı
 
-EgaImageEditor, görüntüler üzerinde gelişmiş yapay zekâ tabanlı işlemler gerçekleştiren bir PyQt5 arayüz uygulamasıdır. Görüntüelerin gürültü giderme, süper çözünürlük, arka plan silme, tuval yeniden boyutlandırma ve format dönüştürme gibi işlemlerini destekler. SCUNet, SwinIR ve U²-Net gibi güçlü modelleri entegre eder.
+ImageEditor, görüntüler üzerinde gelişmiş yapay zekâ tabanlı işlemler gerçekleştiren bir PyQt5 arayüz uygulamasıdır. Görüntüelerin gürültü giderme, süper çözünürlük, arka plan silme, tuval yeniden boyutlandırma ve format dönüştürme gibi işlemlerini destekler. SCUNet, SwinIR ve U²-Net gibi güçlü modelleri entegre eder.
 
 ---
 
