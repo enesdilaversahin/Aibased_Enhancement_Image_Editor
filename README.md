@@ -73,8 +73,8 @@ https://github.com/JingyunLiang/SwinIR/releases/download/v0.0/003_realSR_BSRGAN_
 ### Gereken Ekstra Kütüphaneler:
 
 ```
-
 torh kütüphanesini cudaya uygun indireceğiz ekran kartın varsa yoksa cpu verisyonunu
+
 https://pytorch.org/get-started/locally/ buradan seçebilirsin
 
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
@@ -89,8 +89,8 @@ pip install timm thop einops PyQt5 pynvml opencv-python
 ### Gereken Cuda ve Cudnn:
 
 ```Uyumu seçenkleri seçip kurun
-
 https://developer.nvidia.com/cuda-12-6-0-download-archive
+
 https://developer.nvidia.com/cudnn-downloads
 ```
 
