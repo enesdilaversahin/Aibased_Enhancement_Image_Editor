@@ -4,6 +4,11 @@ ImageEditor, görüntüler üzerinde gelişmiş yapay zekâ tabanlı işlemler g
 
 ---
 
+## 📛 Kullanım Kısıtlaması
+
+Bu depodaki kod yalnızca kişisel amaçlarla yazılmıştır. Kodun kopyalanması, ticari veya açık kaynak projelerde kullanımı **kesinlikle yasaktır**.
+
+
 ### 🚀 Temel Özellikler
 
 | Özellik                | Açıklama                                                                   |
