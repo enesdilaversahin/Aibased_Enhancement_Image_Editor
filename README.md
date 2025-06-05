@@ -1,103 +1,113 @@
-## 📦 ImageEditor - Görüntü İşleme Aracı
+### \[English Version]
 
-ImageEditor, görüntüler üzerinde gelişmiş yapay zekâ tabanlı işlemler gerçekleştiren bir PyQt5 arayüz uygulamasıdır. Görüntüelerin gürültü giderme, süper çözünürlük, arka plan silme, tuval yeniden boyutlandırma ve format dönüştürme gibi işlemlerini destekler. SCUNet, SwinIR ve U²-Net gibi güçlü modelleri entegre eder.
+🇹🇷 [Türkçe Sürüm](README.tr.md)
 
----
+## 📦 ImageEditor - Intelligent Image Processing App
 
-### 🚀 Temel Özellikler
-
-| Özellik                | Açıklama                                                                   |
-| ---------------------- | -------------------------------------------------------------------------- |
-| 🧠 AI Tabanlı İşlemler | SCUNet (denoising), SwinIR (super-resolution), U²-Net (background removal) |
-| 🖼️ Görüntü Dönüşümü   | Arka plan silme, tuvali ayarlama, format dönüştürme                        |
-| 🧹 Modüler İş Akışı    | Adım adım yapılandırılabilir pipeline                                      |
-| 🧑‍💻 GUI              | PyQt5 tabanlı kullanıcı arayüzü                                            |
-| 🧠 GPU Desteği         | CUDA destekli hızlandırma                                                  |
+ImageEditor is a PyQt5-based GUI application for advanced AI-powered image processing. It supports operations such as denoising, super-resolution, background removal, canvas resizing, and format conversion. It integrates powerful models such as SCUNet, SwinIR, and U²-Net.
 
 ---
 
-## 🧠 Kullanılan Derin Öğrenme Modelleri
+### 🚀 Key Features
+
+| Feature              | Description                                                                |
+| -------------------- | -------------------------------------------------------------------------- |
+| 🧠 AI Processing     | SCUNet (denoising), SwinIR (super-resolution), U²-Net (background removal) |
+| 🖼️ Image Conversion | Background removal, canvas adjustment, format conversion                   |
+| 🧹 Modular Workflow  | Configurable step-by-step pipeline                                         |
+| 🧑‍💻 GUI            | User interface powered by PyQt5                                            |
+| 🚀 GPU Acceleration  | CUDA-supported performance boost                                           |
+
+---
+
+## 🧠 Deep Learning Models Used
 
 ### 1. **SCUNet** – Denoising
 
-* Gürültü giderme amacıyla kullanılır.
-* Model dosyaları: `scunet_color_25.pth`, `scunet_color_15.pth`, vb.
-* Modelin tanımı: `models/network_scunet.py`
+* Used for noise removal.
+* Model files: `scunet_color_25.pth`, `scunet_color_15.pth`, etc.
+* Model definition: `models/network_scunet.py`
 * 📄 Paper: [SCUNet: Sparsity-Controlling Unet](https://arxiv.org/abs/2107.11906)
 * 🔗 Repo: [https://github.com/cszn/SCUNet](https://github.com/cszn/SCUNet)
 
 ### 2. **SwinIR** – Super-Resolution
 
-* Görüntü iyileştirme ve büyütme (4x gibi).
-* Modelin tanımı: `models/network_swinir.py`
+* Used for enhancing and enlarging images (e.g., 4×).
+* Model definition: `models/network_swinir.py`
 * 📄 Paper: [SwinIR: Image Restoration Using Swin Transformer](https://arxiv.org/abs/2108.10257)
 * 🔗 Repo: [https://github.com/JingyunLiang/SwinIR](https://github.com/JingyunLiang/SwinIR)
 
 ### 3. **U²-Net** – Background Removal
 
-* Görselin arka planını maskeler.
-* Modelin tanımı: `models/u2net.py`
+* Generates an alpha mask for transparent backgrounds.
+* Model definition: `models/u2net.py`
 * 📄 Paper: [U²-Net: Going Deeper with Nested U-Structure](https://arxiv.org/abs/2005.09007)
 * 🔗 Repo: [https://github.com/xuebinqin/U-2-Net](https://github.com/xuebinqin/U-2-Net)
-* https://drive.google.com/file/d/1ao1ovG1Qtx4b7EoskHXmi2E9rp5CHLcZ/view 
+* 🔗 [Pretrained Model Download (Google Drive)](https://drive.google.com/file/d/1ao1ovG1Qtx4b7EoskHXmi2E9rp5CHLcZ/view)
 
 ---
 
-## ⚙️ Çalışma Mantığı
+## ⚙️ How It Works
 
-1. **Kullanıcı İş Akışını Belirler:** GUI üzerinden sırayla uygulanacak işlemler seçilir.
-2. **Geçici Klasör Kullanımı:** Her adım, geçici bir klasöre çıktı üretir (`step_0`, `step_1`, ...).
-3. **Her Adımda Şu Olur:**
+1. **User Builds a Workflow:** A GUI lets you select and order processing steps.
+2. **Temporary Folder Usage:** Each step writes output to a separate folder (e.g., `step_0`, `step_1`, ...).
+3. **Per-Step Behavior:**
 
-   * AI işlemiyse (SCUNet/SwinIR): ilgili model GPU'da yüklenir, tiled modda çalışabilir.
-   * Görüntü işlem adımıysa (arka plan silme, tuval ayarı vb): U2net, PIL ve NumPy kullanılır.
-4. **Bellek Temizliği:** CUDA cache temizlenir, `gc.collect()` çağrılır.
-5. **Sonuçlar çıktı klasörüne yazılır.**
+   * AI step (SCUNet/SwinIR): model is loaded onto GPU and may run in tiled mode.
+   * Image step (e.g. background removal, canvas adjustment): uses PIL, NumPy, U2Net, etc.
+4. **Memory Management:** CUDA cache is cleared, and Python garbage collector is invoked.
+5. **Final Output is Written:** Results are saved to the output directory.
 
 ---
 
-## 🛠️ Kurulum
+## 🛠️ Installation
 
 ```bash
-git clone https://github.com/kullanici/EgaImageEditor.git
+git clone https://github.com/youruser/EgaImageEditor.git
 cd EgaImageEditor
 pip install -r requirements.txt
-* Aşşağıdakileri indirin
-https://github.com/JingyunLiang/SwinIR/releases/tag/v0.0
-https://github.com/JingyunLiang/SwinIR/releases/download/v0.0/003_realSR_BSRGAN_DFO_s64w8_SwinIR-M_x4_GAN.pth
-https://github.com/JingyunLiang/SwinIR/releases/download/v0.0/003_realSR_BSRGAN_DFOWMFC_s64w8_SwinIR-L_x4_GAN.pth
-* https://drive.google.com/file/d/1ao1ovG1Qtx4b7EoskHXmi2E9rp5CHLcZ/view 
 ```
 
+### Also download these models:
 
-### Gereken Ekstra Kütüphaneler:
+* [SwinIR Models](https://github.com/JingyunLiang/SwinIR/releases/tag/v0.0)
 
-```
-torh kütüphanesini cudaya uygun indireceğiz ekran kartın varsa yoksa cpu verisyonunu
+  * [SwinIR-M x4](https://github.com/JingyunLiang/SwinIR/releases/download/v0.0/003_realSR_BSRGAN_DFO_s64w8_SwinIR-M_x4_GAN.pth)
+  * [SwinIR-L x4](https://github.com/JingyunLiang/SwinIR/releases/download/v0.0/003_realSR_BSRGAN_DFOWMFC_s64w8_SwinIR-L_x4_GAN.pth)
 
-https://pytorch.org/get-started/locally/ buradan seçebilirsin
+* [U²-Net Pretrained Weights (Google Drive)](https://drive.google.com/file/d/1ao1ovG1Qtx4b7EoskHXmi2E9rp5CHLcZ/view)
 
+---
+
+### Required Python Libraries
+
+Make sure your `torch` version matches your CUDA setup. Use [PyTorch Official Installer Guide](https://pytorch.org/get-started/locally/).
+
+```bash
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
-
 pip install timm thop einops PyQt5 pynvml opencv-python
 ```
 
 ---
 
+### Required CUDA & cuDNN
 
-
-### Gereken Cuda ve Cudnn:
-
-```Uyumu seçenkleri seçip kurun
-https://developer.nvidia.com/cuda-12-6-0-download-archive
-
-https://developer.nvidia.com/cudnn-downloads
-```
+* CUDA: [https://developer.nvidia.com/cuda-12-6-0-download-archive](https://developer.nvidia.com/cuda-12-6-0-download-archive)
+* cuDNN: [https://developer.nvidia.com/cudnn-downloads](https://developer.nvidia.com/cudnn-downloads)
 
 ---
 
+## 🧪 Running the App
 
-## 📁 Klasör Yapısı
+```bash
+python main.py
+```
+
+The GUI will launch. Select input/output folders, configure steps, and click **Start Processing**.
+
+---
+
+## 📁 Folder Structure
 
 ```bash
 EgaImageEditor/
@@ -105,7 +115,7 @@ EgaImageEditor/
 │   ├── network_scunet.py
 │   ├── network_swinir.py
 │   ├── u2net.py
-│   └── *.pth (model ağırlıkları)
+│   └── *.pth (model weights)
 ├── utils/
 │   ├── utils_image.py
 │   └── utils_model.py
@@ -116,25 +126,22 @@ EgaImageEditor/
 
 ---
 
-## 📸 Ekran Görüntüsü
+## 📸 Screenshot
 
-* Çıktılar
-<img src="/prepare.png" width="900px"/> 
+* Output Sample:
 
----
-
-## 📌 Notlar
-
-* SCUNet ve SwinIR modelleri tiled modda çalışar.
-* GUI, karanlık mod desteği sunar.
-* U2Net çıktısı doğrudan alpha kanal olarak kullanılır.
+  <img src="/prepare.png" width="900px"/>
 
 ---
 
-## 🧪 Test
+## 📌 Notes
 
-```bash
-python main.py
-```
+* SCUNet and SwinIR operate in tiled mode for large images.
+* The GUI supports dark mode on Windows.
+* U²-Net generates alpha masks for background removal.
 
-Arayüz açıldığında girdi ve çıktı klasörlerini seçin, işlemleri sıraya dizin ve "İşlem Başlat" butonuna basın.
+---
+
+## 💼 License & Limitations
+
+This project is for personal use only. Commercial use or redistribution is strictly **prohibited**.
