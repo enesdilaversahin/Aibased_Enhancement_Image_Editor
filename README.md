@@ -4,11 +4,6 @@ ImageEditor, görüntüler üzerinde gelişmiş yapay zekâ tabanlı işlemler g
 
 ---
 
-## 📛 Kullanım Kısıtlaması
-
-Bu depodaki kod yalnızca kişisel amaçlarla yazılmıştır. Kodun kopyalanması, ticari projelerde kullanımı **kesinlikle yasaktır**.
-
-
 ### 🚀 Temel Özellikler
 
 | Özellik                | Açıklama                                                                   |
@@ -102,6 +97,16 @@ https://developer.nvidia.com/cudnn-downloads
 ---
 
 
+## 🧪 Test
+
+```bash
+python main.py
+```
+
+Arayüz açıldığında girdi ve çıktı klasörlerini seçin, işlemleri sıraya dizin ve "İşlem Başlat" butonuna basın.
+
+
+
 ## 📁 Klasör Yapısı
 
 ```bash
@@ -136,10 +141,8 @@ EgaImageEditor/
 
 ---
 
-## 🧪 Test
 
-```bash
-python main.py
-```
+## 📛 Kullanım Kısıtlaması
 
-Arayüz açıldığında girdi ve çıktı klasörlerini seçin, işlemleri sıraya dizin ve "İşlem Başlat" butonuna basın.
+Bu depodaki kod yalnızca kişisel amaçlarla yazılmıştır. Kodun kopyalanması, ticari projelerde kullanımı **kesinlikle yasaktır**.
+
