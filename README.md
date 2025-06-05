@@ -1,4 +1,4 @@
-### \[English Version]
+### 🇬🇧 \[English Version]
 
 🇹🇷 [Türkçe Sürüm](README.tr.md)
 
